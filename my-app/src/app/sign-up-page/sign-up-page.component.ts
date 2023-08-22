@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -34,17 +34,25 @@ export class SignUpPageComponent implements OnInit{
     console.log('Email:', this.signupForm.value.email);
     console.log('Phone:', this.signupForm.value.phone);
     // Add logic to navigate to another page if needed
-    this.userSignUp();
+    this.openuserdetailsSignUpModal();
   }
 
+  @Output() closeSignUp = new EventEmitter<void>();
 
-  closeSignUp() {
-    this.router.navigate(['/header']);
+  onCloseSignUp() {
+    this.closeSignUp.emit();
   }
 
-  userSignUp() {
-    this.router.navigate(['/userdetails-signup']);
+  showuserdetailsSignUpModal = false;
+  showSignupPage: boolean = true;
+
+   openuserdetailsSignUpModal() {
+    this.showuserdetailsSignUpModal = true;
+    this.showSignupPage = false;
   }
 
+   closeuserdetailsSignUpModal() {
+    this.showuserdetailsSignUpModal = false;
+  }
 
 }
