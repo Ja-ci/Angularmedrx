@@ -43,12 +43,8 @@ export class SignUpPageComponent implements OnInit{
     this.closeSignUp.emit();
   }
 
-  showuserdetailsSignUpModal = false;
-  showSignupPage: boolean = true;
-
-   openuserdetailsSignUpModal() {
-    this.showuserdetailsSignUpModal = true;
-    this.showSignupPage = false;
+  userSignUp() {
+    this.router.navigate(['/userdetails-signup']);
   }
 
    closeuserdetailsSignUpModal() {

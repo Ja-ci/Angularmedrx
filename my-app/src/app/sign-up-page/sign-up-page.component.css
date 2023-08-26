@@ -125,7 +125,7 @@ button {
 
 
 @media (max-width: 768px) {
-  .signup-container {
+  .signup-container{
     width: 75%;
     top: 40%;
     left: 42%;
