@@ -17,7 +17,7 @@ import { ServicesComponent } from './services/services.component';
 import { FeaturesComponent } from './features/features.component';
 import { HomeComponent } from './home/home.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { PharmacyRegistrationComponent } from './pharmacy-registration/pharmacy-registration.component';
 import { SigninComponent } from './signin/signin.component';
@@ -37,50 +37,34 @@ import { BackendserviceService } from './backendservice.service';
 
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    SearchbarComponent,
-    ServicesComponent,
-    FeaturesComponent,
-     HomeComponent,
-    SignUpPageComponent,
-    PharmacyRegistrationComponent,
-    SigninComponent,
-    UserdetailsSignupComponent,
-    DrugCarouselComponentComponent,
-    HowmedrxworksComponent,
-
-    SearchResultsPageComponent,
-
-
-
-
-
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatIconModule,
-    StoreModule.forRoot({search: MedicineSearchresultsReducer}),
-    
-    MatListModule,
-    MatButtonModule
-
-  ],
-  providers: [
-  BackendserviceService,
-  {provide: 'appState', useValue: {} as AppState},
-
-
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HeaderComponent,
+        SearchbarComponent,
+        ServicesComponent,
+        FeaturesComponent,
+        HomeComponent,
+        SignUpPageComponent,
+        PharmacyRegistrationComponent,
+        SigninComponent,
+        UserdetailsSignupComponent,
+        DrugCarouselComponentComponent,
+        HowmedrxworksComponent,
+        SearchResultsPageComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatIconModule,
+        StoreModule.forRoot({ search: MedicineSearchresultsReducer }),
+        MatListModule,
+        MatButtonModule], providers: [
+        BackendserviceService,
+        { provide: 'appState', useValue: {} as AppState },
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule { }
