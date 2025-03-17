@@ -12,7 +12,10 @@ import { UserdetailsSignupComponent } from './userdetails-signup/userdetails-sig
 import { SearchResultsPageComponent } from './search-results-page/search-results-page.component';
 import { SigninComponent } from './signin/signin.component';
 import { AboutComponent } from './about/about.component';
-
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { DownloadComponent } from './download/download.component';
+import { PricingComponent } from './pricing/pricing.component';
 const routes: Routes = [
 //   {path:'results',
 //   component: SearchResultsPageComponent,
@@ -32,9 +35,12 @@ const routes: Routes = [
   {path: 'userdetails-signup', component: UserdetailsSignupComponent},
   {path: 'results', component: SearchResultsPageComponent},
   {path: 'signin', component: SigninComponent},
-  {path: 'loader', component: LoaderComponent},
-  {path: '**', redirectTo: 'home'}
-
+  { path: 'loader', component: LoaderComponent },
+  { path: 'landing-page', component: LandingPageComponent },
+  {path: 'feedback', component: FeedbackComponent},
+  {path:'download',component:DownloadComponent},
+  {path:'pricing',component:PricingComponent},
+  {path: '**', redirectTo: 'landing-page'},
 
 ];
 
